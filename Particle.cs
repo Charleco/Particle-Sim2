@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
 
 namespace ParticleSim
 {
@@ -13,7 +6,7 @@ namespace ParticleSim
     {
         private Vector2 pos;
         private Vector2 vel;
-        private World world;
+        private readonly World world;
         public Particle(float x, float y, World world)
         {
             this.pos = new Vector2(x, y);
@@ -36,11 +29,11 @@ namespace ParticleSim
         {
             this.vel = vel;
         }
-        public void grav(float dt)
+        public void Grav(float dt)
         {
             this.vel.Y += 5f*dt;
         }
-        public void move(int rowCount, float dt, Particle below)
+        public void Move(int rowCount, float dt, Particle below)
         {
             if (pos.Y > rowCount-1)
             {
