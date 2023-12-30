@@ -42,7 +42,6 @@ namespace ParticleSim
             world.PartMove(dt);
             world.GridUpdate();
             world.GridBalance();
-            System.Diagnostics.Debug.WriteLine(MousePos+ " "+ MousePos.X / world.scale + " "+ MousePos.Y / world.scale);
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 world.PartAdd((int)MousePos.X/world.scale, (int)MousePos.Y/world.scale);

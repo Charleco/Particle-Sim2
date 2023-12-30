@@ -17,7 +17,7 @@ namespace ParticleSim
             rowCount = height/scale;
             this.scale = scale;
             grid = new Particle[rowCount, colCount];
-            this.PopGrid();
+            PopGrid();
         }
        
         public void PopGrid()
@@ -95,16 +95,14 @@ namespace ParticleSim
         public int ColHeight(int x)
         {
             int count = 0;
-            for (int y = 1; y < rowCount - 1; y++)
+            for (int y = rowCount - 1; y > 1; y--)
             {
                 if (grid[y, x] != null)
                 {
                     count++;
                 }
-                /*
                 else
                     break;
-                */
             }
             return count;
         }
