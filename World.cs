@@ -10,7 +10,7 @@ namespace ParticleSim
         { get; set; }
         private readonly int colCount;
         private readonly int rowCount;
-        private readonly int scale;
+        public readonly int scale;
         public World(int scale, int width, int height)
         {
             colCount = width / scale;
@@ -31,6 +31,10 @@ namespace ParticleSim
                         grid[y,x] = new Particle(x, y, this);
                 }
             }
+        }
+        public void PartAdd(int x, int y)
+        {
+            grid[y, x] = new Particle(x, y, this);
         }
         public void GridUpdate()
         {
@@ -97,6 +101,10 @@ namespace ParticleSim
                 {
                     count++;
                 }
+                /*
+                else
+                    break;
+                */
             }
             return count;
         }
